@@ -10,9 +10,14 @@ export default function Home() {
     { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
   ])
 
+  const handleDelete = (id) =>{
+    const newBlogs = blogs.filter(blog=> blog.id!== id);
+    setBlogs(newBlogs);
+  }
+
   return (
     <div className="Home">
-      <BlogList blogs={blogs} title= "All blogs" ></BlogList>
+      <BlogList blogs={blogs} title= "All blogs" handleDelete={handleDelete} ></BlogList>
       {/* <BlogList blogs={blogs.filter((blog)=> blog.author==='mario')} title= "Mario's blogs" ></BlogList> */}
 
     </div>
